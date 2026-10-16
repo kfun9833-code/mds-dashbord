@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDS Motorcycle | New Janata Garage</title>
+<style>
+:root{--navy:#101a32;--red:#e7463b;--orange:#f59e0b;--bg:#f3f5f9;--white:#fff;--muted:#697386}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#182238}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:250px;background:var(--navy);color:white;padding:22px 14px;flex-shrink:0}
+.brand{font-size:22px;font-weight:800;margin:4px 8px}
+.brand span{color:#ff7166}
+.subtitle{font-size:12px;color:#bac4d7;margin:8px}
+nav{display:grid;gap:5px;margin-top:28px}
+nav button{border:0;text-align:left;background:transparent;color:#d5dbea;padding:13px 12px;border-radius:9px;cursor:pointer;font-size:14px}
+nav button:hover,nav button.active{background:var(--red);color:white}
+main{padding:25px;flex:1;min-width:0}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+h1{font-size:27px;margin:6px 0}
+.small{color:var(--muted);font-size:13px}
+select,input,textarea{padding:10px;border:1px solid #dce1ea;border-radius:8px;background:white;max-width:100%}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0}
+.card,.panel{background:white;border:1px solid #e5e9f0;border-radius:14px;padding:18px;box-shadow:0 4px 15px #18223808}
+.card-label{font-size:13px;color:var(--muted)}
+.number{font-size:27px;font-weight:800;margin-top:9px}
+.red{color:var(--red)}
+.panel{margin-bottom:18px}
+h2{font-size:18px;margin:0 0 16px}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.service{border:1px solid #e5e9f0;border-radius:12px;padding:16px}
+.service h3{font-size:15px;line-height:1.4}
+.price{font-size:24px;font-weight:800;color:var(--red)}
+.btn{border:0;border-radius:8px;background:var(--red);color:white;padding:11px 15px;font-weight:bold;cursor:pointer;margin:4px 4px 4px 0}
+.btn.secondary{background:#e9edf5;color:#17233a}
+input,textarea{width:100%;margin:5px 0 12px}
+label{font-size:13px;font-weight:bold}
+.hidden{display:none}
+.note{padding:13px;border-radius:9px;background:#fff5e7;color:#8a4b08;font-size:13px;line-height:1.6}
+footer{color:var(--muted);font-size:12px;margin-top:25px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar{width:210px}main{padding:17px}}
+@media(max-width:600px){.layout{display:block}.sidebar{width:100%;padding:14px}.subtitle{margin-bottom:12px}nav{display:flex;overflow-x:auto;margin-top:15px}nav button{white-space:nowrap}.cards{gap:9px}main{padding:13px}.services{grid-template-columns:1fr}h1{font-size:23px}.card{padding:12px}.number{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">MDS <span>Motorcycle</span></div>
+  <div class="subtitle">New Janata Garage · Since 2018</div>
+  <nav id="nav">
+    <button class="active" data-page="dashboard">▦ Dashboard</button>
+    <button data-page="bookings">▣ Bookings</button>
+    <button data-page="customers">♙ Customers</button>
+    <button data-page="vehicles">🏍 Vehicles</button>
+    <button data-page="history">◷ Service History</button>
+    <button data-page="reminders">◉ Service Reminder</button>
+    <button data-page="revenue">₹ Revenue</button>
+    <button data-page="scan">▤ Scan Old Bill</button>
+    <button data-page="reports">▥ Reports</button>
+    <button data-page="settings">⚙ Settings</button>
+  </nav>
+</aside>
+
+<main>
+<header>
+  <div>
+    <div class="small">MDS Motorcycle / Owner Workspace</div>
+    <h1 id="pageTitle">Dashboard</h1>
+  </div>
+  <select id="language" aria-label="Language">
+    <option value="hi">हिंदी</option>
+    <option value="en">English</option>
+  </select>
+</header>
+
+<section id="dashboard">
+  <div class="cards">
+    <div class="card"><div class="card-label">आज की बुकिंग</div><div class="number">—</div></div>
+    <div class="card"><div class="card-label">कस्टमर</div><div class="number">—</div></div>
+    <div class="card"><div class="card-label">महीने की कमाई</div><div class="number red">₹ —</div></div>
+    <div class="card"><div class="card-label">सर्विस रिमाइंडर</div><div class="number">—</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>हमारी सर्विस</h2>
+    <div class="services">
+      <div class="service">
+        <h3>General Servicing (Under 180cc)</h3>
+        <div class="price">₹349</div>
+        <p class="small">2 घंटे · 500 KM Service Guarantee</p>
+      </div>
+      <div class="service">
+        <h3>General Service + Engine Oil Combo (Under 180cc)</h3>
+        <div class="price">₹889</div>
+        <p class="small">सर्विस + इंजन ऑयल</p>
+      </div>
+      <div class="service">
+        <h3>General Servicing (200cc–250cc)</h3>
+        <div class="price">₹449</div>
+        <p class="small">2 घंटे · 500 KM Service Guarantee</p>
+      </div>
+      <div class="service">
+        <h3>General Service + Engine Oil Combo (200cc–250cc)</h3>
+        <div class="price">₹1114</div>
+        <p class="small">सर्विस + इंजन ऑयल</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Customer Website</h2>
+    <p>अपनी बाइक की सर्विस बुक करें और MDS Motorcycle से संपर्क करें।</p>
+    <button class="btn" onclick="showPage('bookings')">Book Service</button>
+    <button class="btn secondary" onclick="showPage('scan')">Scan Old Bill</button>
+    <a href="https://wa.me/917070785606" target="_blank" rel="noopener">
+      <button class="btn secondary">WhatsApp</button>
+    </a>
+  </div>
+</section>
+
+<section id="other" class="panel hidden">
+  <h2 id="otherTitle"></h2>
+  <p id="otherDescription" class="small"></p>
+  <div id="otherContent"></div>
+  <div class="note" id="status">
+    यह फ्रंटएंड डेमो है। वास्तविक डेटा के लिए सुरक्षित बैकएंड कनेक्शन जरूरी है।
+  </div>
+  <button class="btn secondary" onclick="showPage('dashboard')">← Dashboard</button>
+</section>
+
+<footer>MDS Motorcycle · New Janata Garage · Pune</footer>
+</main>
+</div>
+
+<script>
+const titles={
+dashboard:"Dashboard",bookings:"Bookings",customers:"Customers",
+vehicles:"Vehicles",history:"Service History",reminders:"Service Reminder",
+revenue:"Revenue",scan:"Scan Old Bill",reports:"Reports",settings:"Settings"
+};
+
+const descriptions={
+bookings:"सर्विस बुकिंग देखने और मैनेज करने का सेक्शन।",
+customers:"ग्राहकों का नाम और मोबाइल रिकॉर्ड।",
+vehicles:"बाइक का नंबर, मॉडल और अगली सर्विस की तारीख।",
+history:"पुराने बिल और पूरी सर्विस हिस्ट्री।",
+reminders:"Due सर्विस की तारीख और WhatsApp रिमाइंडर।",
+revenue:"कमाई और सर्विस रिपोर्ट।",
+scan:"पुराने बिल की फोटो से जानकारी निकालने वाला AI सिस्टम।",
+reports:"रिपोर्ट और CSV एक्सपोर्ट।",
+settings:"गैरेज की जानकारी, सर्विस कार्ड और फोटो सेटिंग्स।"
+};
+
+function showPage(page){
+  document.querySelectorAll("#nav button").forEach(button=>{
+    button.classList.toggle("active",button.dataset.page===page);
+  });
+  document.getElementById("pageTitle").textContent=titles[page]||"Dashboard";
+  document.getElementById("dashboard").classList.toggle("hidden",page!=="dashboard");
+  document.getElementById("other").classList.toggle("hidden",page==="dashboard");
+
+  if(page!=="dashboard"){
+    document.getElementById("otherTitle").textContent=titles[page];
+    document.getElementById("otherDescription").textContent=descriptions[page]||"";
+    const content=document.getElementById("otherContent");
+    content.innerHTML="";
+
+    if(page==="scan"){
+      content.innerHTML=`
+        <label>बिल की फोटो चुनें</label>
+        <input type="file" accept="image/*" id="billPhoto">
+        <label>ग्राहक का नाम</label><input id="billName" placeholder="ग्राहक का नाम">
+        <label>मोबाइल नंबर</label><input id="billMobile" inputmode="numeric" placeholder="10 अंकों का नंबर">
+        <label>गाड़ी का नंबर</label><input id="billVehicle" placeholder="MH12AB1234">
+        <label>बाइक मॉडल</label><input id="billModel" placeholder="उदाहरण: Splendor Plus">
+        <label>बिल आइटम और रकम</label>
+        <textarea id="billItems" rows="3" placeholder="Engine Oil = 540"></textarea>
+        <button class="btn" onclick="saveDraft()">बिल की जानकारी जाँचें</button>
+        <p class="small">यह डेमो है; AI OCR और डेटाबेस सेव अभी कनेक्ट नहीं हैं।</p>`;
+    }else if(page==="settings"){
+      content.innerHTML=`
+        <label>Garage Name</label><input value="New Janata Garage">
+        <label>Business Name</label><input value="MDS Motorcycle">
+        <label>Address</label><input value="Pune, Maharashtra">
+        <label>Working Hours</label><input value="9:00 AM – 9:00 PM">
+        <p class="small">इन फील्ड्स को सेव करने के लिए बैकएंड API जोड़ना होगा।</p>`;
+    }else{
+      content.innerHTML=`<p class="note">इस फीचर का वास्तविक डेटा अभी API से कनेक्ट नहीं है।</p>`;
+    }
+    document.getElementById("status").textContent=
+      "ध्यान दें: यह शुरुआती UI है। वास्तविक लॉगिन, डेटाबेस, AI और रिपोर्टिंग अभी कनेक्ट करना बाकी है।";
+  }
+}
+
+function saveDraft(){
+  const name=document.getElementById("billName").value.trim();
+  const mobile=document.getElementById("billMobile").value.trim();
+  const vehicle=document.getElementById("billVehicle").value.trim();
+  const model=document.getElementById("billModel").value.trim();
+  if(!name||!/^\d{10}$/.test(mobile)||!vehicle||!model){
+    alert("कृपया ग्राहक का नाम, सही 10 अंकों का मोबाइल नंबर, गाड़ी नंबर और मॉडल भरें।");
+    return;
+  }
+  alert("जानकारी फॉर्म में दर्ज है। वास्तविक AI स्कैन और Save के लिए बैकएंड जोड़ना बाकी है।");
+}
+
+document.getElementById("nav").addEventListener("click",event=>{
+  const button=event.target.closest("button[data-page]");
+  if(button)showPage(button.dataset.page);
+});
+
+document.getElementById("language").addEventListener("change",event=>{
+  alert(event.target.value==="en"
+    ?"English labels are not fully wired in this starter."
+    :"हिंदी चुनी गई है।");
+});
+</script>
+</body>
+</html>
